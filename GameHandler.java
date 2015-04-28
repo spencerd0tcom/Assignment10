@@ -68,7 +68,7 @@ public class GameHandler
 	
 	public void standardBattleHandling()
 	{
-		
+	
 		if(activePlayerOneCard.isEqual(activePlayerTwoCard))
 		{
 			warBattleHandling();
@@ -82,7 +82,6 @@ public class GameHandler
 		{
 			player2.winHandling(playedCards);
 		}
-		
 		
 	}
 	

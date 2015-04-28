@@ -2,15 +2,17 @@
  * CS110A
  * GUI for game of war.  */
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class WarGUI extends JFrame
 {
    private Deck gameDeck;
    private Player player1;
    private Player player2;
-   private GameHandler theGame;
+   private CardInterpreter theGame;
    private JPanel upperPanel,lowerPanel;  // break up regions
    private JButton playButton;    // grid of buttons
    private JLabel playerCard, playerInfo, cpuCard, cpuInfo, gameInfo;  // game status
@@ -25,7 +27,7 @@ public class WarGUI extends JFrame
       gameDeck = new Deck();
       player1 = new Player(gameDeck.deal());
       player2 = new Player(gameDeck.getDeck());
-      theGame = new GameHandler(player1, player2);
+      theGame = new CardInterpreter(player1, player2);
       
       // setup containers and components
       upperPanel = new JPanel(new GridLayout(2, 1));
@@ -54,9 +56,13 @@ public class WarGUI extends JFrame
    // handle button events
    private class ButtonListener implements ActionListener
    {
+	  ArrayList<String> guiText = new ArrayList<>();
+	   
       public void actionPerformed(ActionEvent e)
       {     
-    	  theGame.
+    	  guiText = theGame.roundTextCreation();
+    	  
+    	  
       }
       
       

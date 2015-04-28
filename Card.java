@@ -3,7 +3,7 @@
  * Class holds information of a playing card.  */
 public class Card 
 {
-	public final int HEART = 0, DIAMOND = 1, SPADE = 2, CLUB = 3, 
+	public static final int HEART = 0, DIAMOND = 1, SPADE = 2, CLUB = 3, 
 		JACK = 11, QUEEN = 12, KING = 13, ACE = 14;
 	private int suit, value;
 	
