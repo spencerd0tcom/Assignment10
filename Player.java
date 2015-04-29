@@ -8,6 +8,8 @@ public class Player extends Deck
 {
 	private ArrayList<Card> inactiveHand;
 	
+	//Constructor; sets the deck from Deck inheritance and instantiates 
+	//inactiveHand
 	public Player(ArrayList<Card> aDeck)
 	{
 		super(aDeck);
@@ -15,6 +17,8 @@ public class Player extends Deck
 		inactiveHand = new ArrayList<Card>();
 	}
 	
+	//Receives an ArrayList and inserts them into
+	//inactiveHand
 	public void winHandling(ArrayList<Card> wonCards)
 	{
 		for(Card aCard: wonCards)
@@ -23,11 +27,20 @@ public class Player extends Deck
 		}
 	}
 	
+	//Empties inactiveHand into theDeck
 	public void reshuffle()
 	{
 		for(Card aCard: inactiveHand)
 		{
 			this.getDeck().add(aCard);
 		}
+		
+		inactiveHand.clear();
+	}
+	
+	//Returns the size of inactiveHand
+	public int inactiveHandSize()
+	{
+		return inactiveHand.size();
 	}
 }

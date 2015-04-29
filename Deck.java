@@ -7,9 +7,10 @@ import java.util.Random;
 
 public class Deck 
 {
-	private final int PLAYING_CARD_DECK_SIZE = 52;
+	public static final int DECK_SIZE = 52;
 	private ArrayList <Card> theDeck;
 	
+	//Constructor; sets deck to have a full set of Card objects
 	public Deck()
 	{
 		theDeck = new ArrayList<>();
@@ -26,22 +27,25 @@ public class Deck
 		}
 	}
 	
+	//Constructor; sets theDeck to the received Deck objects deck
 	public Deck(Deck aDeck)
 	{
 		theDeck = aDeck.getDeck();
 	}
 	
+	//Constructor; sets theDeck to the received ArrayList
 	public Deck(ArrayList<Card> aDeck)
 	{
 		theDeck = aDeck;
 	}
 	
+	//Randomly puts half of the deck into another ArrayList and returns it
 	public ArrayList<Card> deal()
 	{
 		ArrayList <Card> otherHand = new ArrayList<>();
 		Random cardRandomizer = new Random();
 		
-		for(int i = 0; i < PLAYING_CARD_DECK_SIZE / 2; i++)
+		for(int i = 0; i < DECK_SIZE / 2; i++)
 		{
 			int aCard = cardRandomizer.nextInt(theDeck.size());
 			
@@ -52,11 +56,13 @@ public class Deck
 		return otherHand;
 	}
 	
+	//Returns theDeck
 	public ArrayList<Card> getDeck()
 	{
 		return theDeck;
 	}
 	
+	//Returns the top card of the deck and removes it. 
 	public Card draw()
 	{
 		Card currCard = theDeck.get(0);

@@ -8,22 +8,28 @@ import javax.swing.*;
 
 public class CardInterpreter extends GameHandler
 {
+	//Constructor; takes twoPplayer objects and calls GameHandler constructor
 	public CardInterpreter(Player firstPlayer, Player secondPlayer)
 	{
 		super(firstPlayer, secondPlayer);
 	}
 	
+	//Constructor; takes a GameHandler object and invokes GameHandler copy constructor
 	public CardInterpreter(GameHandler aGame)
 	{
 		super(aGame);
 	}
 	
+	//Method sets the text from createGUIValues() in an ArrayList formated for the GUI to handle
 	public ArrayList<String> roundTextCreation()
 	{
+		
 		ArrayList<String> guiText = createGUIValues();
 		
+	
 		standardBattleHandling();
 		
+		//
 		if(getActivePlayerOneCard().isEqual(getActivePlayerTwoCard()))
 		{	
 			ArrayList<String> newGUIText = createGUIValues();
@@ -33,7 +39,7 @@ public class CardInterpreter extends GameHandler
 			guiText.set(2, newGUIText.get(2));
 			
 		}
-		else if(getActivePlayerOneCard().greaterThan(getActivePlayerTwoCard()))
+		if(getActivePlayerOneCard().greaterThan(getActivePlayerTwoCard()))
 		{
 			guiText.set(0, guiText.get(0) + "\nPlayer 1 wins this round.");
 		}
@@ -45,6 +51,7 @@ public class CardInterpreter extends GameHandler
 		return guiText;
 	}
 	
+	//Creates the individual strings for the GUI values
 	public ArrayList<String> createGUIValues()
 	{
 		ArrayList <String> guiText = new ArrayList<>();
